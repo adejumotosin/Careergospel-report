@@ -11,59 +11,85 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# Custom CSS
+# Custom CSS (dark-mode safe for Streamlit)
 st.markdown("""
-    <style>
-    .main-header {
-        font-size: 2.5rem;
-        font-weight: bold;
-        color: #6A1B9A;
-        text-align: center;
-        margin-bottom: 1rem;
-    }
-    .sub-header {
-        font-size: 1.2rem;
-        color: #666;
-        text-align: center;
-        margin-bottom: 2rem;
-    }
-    .metric-card {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        padding: 1.5rem;
-        border-radius: 10px;
-        color: black;
-        text-align: center;
-        margin: 0.5rem 0;
-    }
-    .insight-box {
-        background-color: #f8f9fa;
-        padding: 1.5rem;
-        border-left: 4px solid #6A1B9A;
-        border-radius: 5px;
-        margin: 1rem 0;
-    }
-    .action-box {
-        background-color: #fff3cd;
-        padding: 1.5rem;
-        border-left: 4px solid #ffc107;
-        border-radius: 5px;
-        margin: 1rem 0;
-    }
-    .success-box {
-        background-color: #d4edda;
-        padding: 1.5rem;
-        border-left: 4px solid #28a745;
-        border-radius: 5px;
-        margin: 1rem 0;
-    }
-    .risk-box {
-        background-color: #f8d7da;
-        padding: 1.5rem;
-        border-left: 4px solid #dc3545;
-        border-radius: 5px;
-        margin: 1rem 0;
-    }
-    </style>
+<style>
+
+/* Headers */
+.main-header {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #8e44ad; /* brighter purple for dark mode */
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.sub-header {
+    font-size: 1.2rem;
+    color: #9ca3af; /* dark-mode safe gray */
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+/* Metric Card */
+.metric-card {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin: 0.5rem 0;
+    text-align: center;
+
+    /* Dark-mode resistant text */
+    color: #f1f5f9 !important;
+
+    /* Prevent Streamlit / browser overrides */
+    forced-color-adjust: none;
+
+    /* Improve readability */
+    text-shadow: 0 1px 2px rgba(0,0,0,0.35);
+}
+
+/* Insight Boxes */
+.insight-box {
+    background-color: #f8f9fa;
+    color: #111827;
+    padding: 1.5rem;
+    border-left: 4px solid #6A1B9A;
+    border-radius: 5px;
+    margin: 1rem 0;
+}
+
+/* Action Boxes */
+.action-box {
+    background-color: #fff3cd;
+    color: #92400e;
+    padding: 1.5rem;
+    border-left: 4px solid #ffc107;
+    border-radius: 5px;
+    margin: 1rem 0;
+}
+
+/* Success Boxes */
+.success-box {
+    background-color: #d4edda;
+    color: #065f46;
+    padding: 1.5rem;
+    border-left: 4px solid #28a745;
+    border-radius: 5px;
+    margin: 1rem 0;
+}
+
+/* Risk Boxes */
+.risk-box {
+    background-color: #f8d7da;
+    color: #7f1d1d;
+    padding: 1.5rem;
+    border-left: 4px solid #dc3545;
+    border-radius: 5px;
+    margin: 1rem 0;
+}
+
+</style>
 """, unsafe_allow_html=True)
 
 # Sidebar navigation
